@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EFSQLite.FirtsPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Button Text="Vyvořit odebíratele a dodavatele" HorizontalOptions="Center" Clicked="Vytvor"/>
+            <Button Text="Odeslané faktury" HorizontalOptions="Center" Clicked="OFaktury"/>
+            <Button Text="Přijaté faktury" HorizontalOptions="Center" Clicked="PFaktury"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

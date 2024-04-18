@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EFSQLite.OFaktury">
+    <ScrollView>
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Entry x:Name="forName" Placeholder="dodavatel" WidthRequest="250" HorizontalOptions="End"/>
+                <Entry x:Name="forSurname" Placeholder="Jméno a příjmení" WidthRequest="250" HorizontalOptions="End" Grid.Row="1"/>
+                <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="End" Grid.Row="2"/>
+                <Entry x:Name="forPSC" Placeholder="PSČ" WidthRequest="250" HorizontalOptions="Center" Grid.Column="1"/>
+                <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="End" Grid.Row="2"/>
+                <Entry x:Name="forNumber" Placeholder="Telefonní číslo" WidthRequest="250" HorizontalOptions="Center" Grid.Column="1"/>
+                <Entry x:Name="forAtrribute" Placeholder="Položka" WidthRequest="250" HorizontalOptions="End" Grid.Row="2"/>
+                <Entry x:Name="forPrice" Placeholder="Price" WidthRequest="250" HorizontalOptions="Center" Grid.Column="1"/>
+                <Entry x:Name="forZpusob" Placeholder="Způsob platby" WidthRequest="250" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1"/>
+                <Entry x:Name="forAccountNumber" Placeholder="Číslo účtu" WidthRequest="250" HorizontalOptions="Center" Grid.Row="2" Grid.Column="1"/>
+                <Label Text="Počet kusů" HorizontalOptions="Start" Grid.Row="0" Grid.Column="2" />
+                <Entry x:Name="forPocetKusu" HorizontalOptions="Center" Grid.Row="0" Grid.Column="2"/>
+                <Label Text="Datum vystavení" HorizontalOptions="Start" Grid.Row="1" Grid.Column="2" />
+                <DatePicker x:Name="Datumvystavení" HorizontalOptions="Center" Grid.Row="1" Grid.Column="2"/>
+                <Label Text="Datum splatnosti" HorizontalOptions="Start" Grid.Row="2" Grid.Column="2" />
+                <DatePicker x:Name="DatumSplacení" HorizontalOptions="Center" Grid.Row="2" Grid.Column="2"/>
+            </Grid>
+
+
+
+            <Button Text="Uložit" HorizontalOptions="Center" Clicked="SaveStudent"/>
+
+            <ListView x:Name="lst" 
+                  WidthRequest="400"
+                  Header="faktury" 
+                  HorizontalOptions="Center" 
+                  BackgroundColor="Grey"/>
+
+            <Button Text="Smazat" HorizontalOptions="Center" Clicked="Smazat"/>
+            <Button Text="PDF" HorizontalOptions="Center" Clicked="PDF"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+
+</ContentPage>

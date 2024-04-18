@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EFSQLite.NewPage2"
+             Title="NewPage2">
+    <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"  
+        VerticalOptions="Center">
+
+        <Entry x:Name="forName" Placeholder="Jméno" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forLastname" Placeholder="Příjmení" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forNumber" Placeholder="Číslo" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forProduct" Placeholder="Produkt" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forPrice" Placeholder="Cena" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forZpusob" Placeholder="Způsob platby" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forAccountNumber" Placeholder="Číslo účtu" WidthRequest="250" HorizontalOptions="Center"/>
+        <Button Text="Uložit" HorizontalOptions="Center" Clicked="SaveStudent"/>
+
+        <ListView x:Name="lst" 
+            WidthRequest="250"
+            Header="Studenti" 
+            HorizontalOptions="Center" 
+            BackgroundColor="Gray"
+ />
+
+        <Button Text="Smazat" HorizontalOptions="Center" Clicked="Smazat"/>
+        <Button Text="Detail" HorizontalOptions="Center" x:Name="detailBTN" Clicked="Detajly"/>
+    </VerticalStackLayout>
+</ContentPage>
