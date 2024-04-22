@@ -8,8 +8,8 @@
         Padding="30,0"  
         VerticalOptions="Center">
 
-        <Entry x:Name="forName" Placeholder="Jméno" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forLastname" Placeholder="Příjmení" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forName" Placeholder="Dodavatel" WidthRequest="250" HorizontalOptions="Center"/>
+        <Entry x:Name="forLastname" Placeholder="Jméno a Příjmení" WidthRequest="250" HorizontalOptions="Center"/>
         <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="Center"/>
         <Entry x:Name="forNumber" Placeholder="Číslo" WidthRequest="250" HorizontalOptions="Center"/>
         <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="Center"/>

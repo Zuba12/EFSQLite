@@ -22,6 +22,7 @@ public partial class OFaktury : ContentPage
         InitializeComponent();
         lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
         QuestPDF.Settings.License = LicenseType.Community;
+        forName1.ItemsSource = _context.Students.ToList();
     }  
 
         private void SaveStudent(object sender, EventArgs e)

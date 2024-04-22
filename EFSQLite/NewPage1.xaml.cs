@@ -13,6 +13,7 @@ public partial class NewPage1 : ContentPage
         _context = new();
         InitializeComponent();
         lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
+        forName1.ItemsSource = _context.Students.ToList();
     }
 
     private void SaveStudent(object sender, EventArgs e)
@@ -42,11 +43,6 @@ public partial class NewPage1 : ContentPage
             _context.SaveChanges(); // uloží zmìny do databáze
             refresh();
         }
-    }
-
-    private async void Detajly(object sender, EventArgs e)
-    {
-
     }
 
     void refresh()
