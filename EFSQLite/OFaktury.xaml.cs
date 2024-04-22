@@ -21,6 +21,7 @@ public partial class OFaktury : ContentPage
         _context = new();
         InitializeComponent();
         lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
+        QuestPDF.Settings.License = LicenseType.Community;
     }  
 
         private void SaveStudent(object sender, EventArgs e)
@@ -60,47 +61,42 @@ public partial class OFaktury : ContentPage
 
     private async void PDF(object sender, EventArgs e)
     {
-        // Check if an item is selected in the ListView
-        if (lst.SelectedItem is Ofaktury2 selectedStudent)
+        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "invoice.pdf");
+        Document.Create(container =>
         {
-            // Define the path for the PDF file
-            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "invoice.pdf");
 
-            // Generate the PDF document
-            Document.Create(container =>
+
+            container.Page(page =>
             {
-                container.Page(page =>
-                {
-                    page.Size(PageSizes.A4);
-                    page.Margin(2, Unit.Centimetre);
-                    page.PageColor(QuestPDF.Helpers.Colors.White);
-                    page.DefaultTextStyle(x => x.FontSize(12));
+                page.Size(PageSizes.A4);
+                page.Margin(2, Unit.Centimetre);
+                page.PageColor(QuestPDF.Helpers.Colors.White);
+                page.DefaultTextStyle(x => x.FontSize(20));
 
-                    // Define the content of the page
-                    page.AddText($"Name: {selectedStudent.Name}");
-                    page.AddText($"Surname: {selectedStudent.SurName}");
-                    page.AddText($"Address: {selectedStudent.Address}");
-                    page.AddText($"Postal Code: {selectedStudent.PSC}");
-                    page.AddText($"Email: {selectedStudent.Email}");
-                    page.AddText($"Number: {selectedStudent.Number}");
-                    page.AddText($"Attribute: {selectedStudent.Atrribute}");
-                    page.AddText($"Price: {selectedStudent.Price}");
-                    page.AddText($"Payment Method: {selectedStudent.Zpusob}");
-                    page.AddText($"Account Number: {selectedStudent.AccountNumber}");
-                    page.AddText($"Quantity: {selectedStudent.PocetKusu}");
-                    page.AddText($"Issuance Date: {Datumvystavení.Date.ToString("yyyy-MM-dd")}");
-                    page.AddText($"Due Date: {DatumSplacení.Date.ToString("yyyy-MM-dd")}");
-                });
-            }).GeneratePdf(path);
+                page.Header()
+                    .Text("Hello PDF!")
+                    .SemiBold().FontSize(36).FontColor(QuestPDF.Helpers.Colors.Blue.Medium);
 
-            // Open the PDF file
-            Process.Start(path);
-        }
-        else
-        {
-            // Inform the user to select an item from the ListView
-            await DisplayAlert("No Selection", "Please select a student from the list before generating PDF.", "OK");
-        }
+                page.Content()
+                    .PaddingVertical(1, Unit.Centimetre)
+                    .Column(x =>
+                    {
+                        x.Spacing(20);
+
+                        x.Item().Text(Placeholders.LoremIpsum());
+                        x.Item().Image(Placeholders.Image(200, 100));
+                    });
+
+                page.Footer()
+                    .AlignCenter()
+                    .Text(x =>
+                    {
+                        x.Span("Page ");
+                        x.CurrentPageNumber();
+                    });
+            });
+        })
+.GeneratePdf(path);
     }
 
     void refresh()
