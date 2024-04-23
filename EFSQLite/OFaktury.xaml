@@ -21,8 +21,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Entry x:Name="forName" Placeholder="Odesílatel" WidthRequest="250" HorizontalOptions="Center"/>
-                <Picker x:Name="forName1" WidthRequest="250"  HorizontalOptions="Center"/>
+                <Picker x:Name="forName" WidthRequest="250"  HorizontalOptions="Center"/>
                 <Entry x:Name="forSurname" Placeholder="Jméno a příjmení" WidthRequest="250" HorizontalOptions="End" Grid.Row="1"/>
                 <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="End" Grid.Row="2"/>
                 <Entry x:Name="forPSC" Placeholder="PSČ" WidthRequest="250" HorizontalOptions="Center" Grid.Column="1"/>

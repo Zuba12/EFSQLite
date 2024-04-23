@@ -14,22 +14,23 @@ namespace EFSQLite;
 
 public partial class OFaktury : ContentPage
 {
-    Ofaktury _context;
+    MyContext _context;
+    Ofaktury _ofaktury;
 
     public OFaktury()
     {
-        _context = new();
+        _ofaktury = new();
         InitializeComponent();
-        lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
+        lst.ItemsSource = _ofaktury.Ofakturies.ToList();  // pøipojení zdroje dat k ListView
         QuestPDF.Settings.License = LicenseType.Community;
-        forName1.ItemsSource = _context.Students.ToList();
+        forName.ItemsSource = _context.Students.ToList();
     }  
+
 
         private void SaveStudent(object sender, EventArgs e)
         {
             Ofaktury2 newStudent = new()
             {
-                Name = forName.Text,
                 SurName = forSurname.Text,
                 Address = forAddress.Text,
                 PSC = forPSC.Text,
@@ -42,8 +43,8 @@ public partial class OFaktury : ContentPage
                 PocetKusu = forPocetKusu.Text, 
             };
 
-            _context.Add(newStudent); // pøidá záznam do Data Setu
-            _context.SaveChanges(); // uloží zmìny do databáze !!!!!!
+            _ofaktury.Add(newStudent); // pøidá záznam do Data Setu
+            _ofaktury.SaveChanges(); // uloží zmìny do databáze !!!!!!
             refresh();
         }
 
@@ -52,8 +53,8 @@ public partial class OFaktury : ContentPage
             Ofaktury2 keSmazani = lst.SelectedItem as Ofaktury2;
             if (keSmazani != null)
             {
-                _context.Students.Remove(keSmazani); // odebrání studenta z data setu
-                _context.SaveChanges(); // uloží zmìny do databáze
+                _ofaktury.Ofakturies.Remove(keSmazani); // odebrání studenta z data setu
+                _ofaktury.SaveChanges(); // uloží zmìny do databáze
                 refresh();
             }
         }
@@ -103,7 +104,7 @@ public partial class OFaktury : ContentPage
     void refresh()
         {
             lst.ItemsSource = null;
-            lst.ItemsSource = _context.Students.ToList();
+            lst.ItemsSource = _ofaktury.Ofakturies.ToList();
         }
 
 }

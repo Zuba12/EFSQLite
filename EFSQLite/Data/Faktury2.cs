@@ -10,7 +10,7 @@ namespace EFSQLite.Data
             Database.EnsureCreated();// Zajistí vytvoření tabulky
         }
 
-        public DbSet<Faktury> Students { get; set; }
+        public DbSet<Faktury> Fakturies { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "MY2.db");

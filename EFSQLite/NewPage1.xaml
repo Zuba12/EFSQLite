@@ -9,7 +9,6 @@
         VerticalOptions="Center">
 
         <Entry x:Name="forName" Placeholder="Jméno" WidthRequest="250" HorizontalOptions="Center"/>
-        <Picker x:Name="forName1" WidthRequest="250"  HorizontalOptions="Center"/>
         <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="Center"/>
         <Entry x:Name="forIC" Placeholder="IČ" WidthRequest="250" HorizontalOptions="Center"/>
         <Entry x:Name="forDIC" Placeholder="DIČ" WidthRequest="250" HorizontalOptions="Center"/>

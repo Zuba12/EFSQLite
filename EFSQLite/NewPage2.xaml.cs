@@ -9,21 +9,22 @@ namespace EFSQLite;
 
 public partial class NewPage2 : ContentPage
 {
-    Faktury2 _context;
+    MyContext _context;
+    Faktury2 _faktury2;
 
     public NewPage2()
     {
-        _context = new();
+        _faktury2 = new();
         InitializeComponent();
-        lst.ItemsSource = _context.Students.ToList(); // pøipojení zdroje dat k ListView
+        lst.ItemsSource = _faktury2.Fakturies.ToList(); // pøipojení zdroje dat k ListView
         QuestPDF.Settings.License = LicenseType.Community;
+        forName.ItemsSource = _context.Students.ToList();
     }
 
     private void SaveStudent(object sender, EventArgs e)
     {
         Faktury newStudent = new()
         {
-            Name = forName.Text,
             Email = forEmail.Text,
             Number = forNumber.Text,
             Address = forAddress.Text,
@@ -34,8 +35,8 @@ public partial class NewPage2 : ContentPage
             //Surname = forSurname.Text 
         };
 
-        _context.Add(newStudent); // pøidá záznam do Data Setu
-        _context.SaveChanges(); // uloží zmìny do databáze !!!!!!
+        _faktury2.Add(newStudent); // pøidá záznam do Data Setu
+        _faktury2.SaveChanges(); // uloží zmìny do databáze !!!!!!
         refresh();
     }
 
@@ -44,8 +45,8 @@ public partial class NewPage2 : ContentPage
         Faktury keSmazani = lst.SelectedItem as Faktury;
         if (keSmazani != null)
         {
-            _context.Students.Remove(keSmazani); // odebrání studenta z data setu
-            _context.SaveChanges(); // uloží zmìny do databáze
+            _faktury2.Fakturies.Remove(keSmazani); // odebrání studenta z data setu
+            _faktury2.SaveChanges(); // uloží zmìny do databáze
             refresh();
         }
     }
@@ -93,6 +94,6 @@ public partial class NewPage2 : ContentPage
     void refresh()
     {
         lst.ItemsSource = null;
-        lst.ItemsSource = _context.Students.ToList();
+        lst.ItemsSource = _faktury2.Fakturies.ToList();
     }
 }
