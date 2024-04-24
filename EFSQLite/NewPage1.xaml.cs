@@ -21,9 +21,9 @@ public partial class NewPage1 : ContentPage
         {
             Name = forName.Text,
             Email = forEmail.Text,
-            IC = forIC.Text,
-            DIC = forDIC.Text,
-            Number = forNumber.Text,
+            IC = decimal.Parse(forIC.Text),
+            DIC = decimal.Parse(forDIC.Text),
+            Number = decimal.Parse(forNumber.Text),
             Address = forAddress.Text,
             //Surname = forSurname.Text 
         };

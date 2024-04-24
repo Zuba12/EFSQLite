@@ -2,26 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EFSQLite.NewPage2"
-             Title="NewPage2">
+             Title="Přijaté faktury">
     <VerticalStackLayout
         Spacing="25"
         Padding="30,0"  
         VerticalOptions="Center">
 
-        <Picker x:Name="forName" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forLastname" Placeholder="Jméno a Příjmení" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forNumber" Placeholder="Číslo" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forProduct" Placeholder="Produkt" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forPrice" Placeholder="Cena" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forZpusob" Placeholder="Způsob platby" WidthRequest="250" HorizontalOptions="Center"/>
-        <Entry x:Name="forAccountNumber" Placeholder="Číslo účtu" WidthRequest="250" HorizontalOptions="Center"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <StackLayout>
+                <Picker x:Name="forName" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forSurname" Placeholder="Jméno a Příjmení" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forAddress" Placeholder="Adresa" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forPSC" Placeholder="PSC" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forEmail" Placeholder="E-mail" WidthRequest="250" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout>
+                <Entry x:Name="forNumber" Placeholder="Číslo" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forAtrribute" Placeholder="Produkt" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forPrice" Placeholder="Cena" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forZpusob" Placeholder="Způsob platby" WidthRequest="250" HorizontalOptions="Center"/>
+                <Entry x:Name="forAccountNumber" Placeholder="Číslo účtu" WidthRequest="250" HorizontalOptions="Center"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Počet kusů" HorizontalOptions="Start"/>
+                <Entry x:Name="forPocetKusu" HorizontalOptions="Center"/>
+                <Label Text="Datum vystavení" HorizontalOptions="Start"/>
+                <DatePicker x:Name="datumVystaveni" HorizontalOptions="Center"/>
+                <Label Text="Datum splatnosti" HorizontalOptions="Start"/>
+                <DatePicker x:Name="datumSplatnosti" HorizontalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>
         <Button Text="Uložit" HorizontalOptions="Center" Clicked="SaveStudent"/>
+
 
         <ListView x:Name="lst" 
             WidthRequest="250"
-            Header="Studenti" 
+            Header="Přijaté faktury" 
             HorizontalOptions="Center" 
             BackgroundColor="Gray"
  />

@@ -6,10 +6,10 @@
 
         public string Name { get; set; }
         public string Email { get; set; }
-        public string Number { get; set; }
+        public decimal Number { get; set; }
         public string Address { get; set; }
-        public string IC { get; set; }
-        public string DIC { get; set; }
+        public decimal IC { get; set; }
+        public decimal DIC { get; set; }
 
 
         public override string ToString()

@@ -11,17 +11,17 @@ public partial class FirtsPage : ContentPage
 
     private void Vytvor(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new NewPage1());
+        Navigation.PushAsync(new NewPage1());
     }
 
     private void OFaktury(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new OFaktury());
+        Navigation.PushAsync(new OFaktury());
     }
 
     private void PFaktury(object sender, EventArgs e)
     {
-        App.Current.MainPage = new NavigationPage(new NewPage2());
+        Navigation.PushAsync(new NewPage2());
     }
 }
 
