@@ -43,7 +43,9 @@ public partial class OFaktury : ContentPage
                 Price = forPrice.Text,
                 Zpusob = forZpusob.Text,
                 AccountNumber = forAccountNumber.Text,
-                PocetKusu = forPocetKusu.Text, 
+                PocetKusu = forPocetKusu.Text,
+                DatumVystaveni = datumVystaveni.Date.ToShortDateString(),
+                DatumSplatnosti = datumSplatnosti.Date.ToShortDateString()
             };
 
             _ofaktury.Add(newStudent); // pøidá záznam do Data Setu
@@ -71,7 +73,7 @@ public partial class OFaktury : ContentPage
         string accountNumber = keSmazani.AccountNumber;
         int celkcena = Int32.Parse(keSmazani.Price) * Int32.Parse(keSmazani.PocetKusu);
 
-        string paymentString = $"SPD1.0ACC:{accountNumber}*AM:{celkcena}";
+        string paymentString = $"SPD*1.0*ACC:{accountNumber}";
 
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
         QRCodeData qrCodeData = qrGenerator.CreateQrCode(paymentString, QRCodeGenerator.ECCLevel.L);

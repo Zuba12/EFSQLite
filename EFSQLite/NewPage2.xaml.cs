@@ -75,7 +75,7 @@ public partial class NewPage2 : ContentPage
         string accountNumber = keSmazani.AccountNumber;
         int celkcena = Int32.Parse(keSmazani.Price) * Int32.Parse(keSmazani.PocetKusu);
 
-        string paymentString = $"SPD1.0ACC:{accountNumber}*AM:{celkcena}";
+        string paymentString = $"SPD*1.0*ACC:{accountNumber}";
 
         QRCodeGenerator qrGenerator = new QRCodeGenerator();
         QRCodeData qrCodeData = qrGenerator.CreateQrCode(paymentString, QRCodeGenerator.ECCLevel.L);
